@@ -94,8 +94,8 @@ on our private forks of the \href{https://github.com/valhalla/valhalla}{Valhalla
 \href{https://github.com/Project-OSRM/osrm-backend}{OSRM} routing engines which both are implemented in C++.
 
 The main issue for me using C/C++ was memory and threading management.
-For having a consistent view of our memory leak we did lots of tests with \href{https://valgrind.org/}{Valgrind}.
-Other things that I encountered with during my projects were different OS compatibility issues,
+For having a consistent view of our memory leaks we did lots of tests with \href{https://valgrind.org/}{Valgrind}.
+Other things that I encountered with during my projects were different OS compatibility challenges,
 Parsing protocols binary headers and endian issues, Cross compilation issues between Intel and ARM processors,
 Allocating memory on systems without having any operating systems installed (like Arduino devices), etc.
 
@@ -104,22 +104,34 @@ Allocating memory on systems without having any operating systems installed (lik
 What are your contributions (design, implementation, testing, documentation, CI/CD, etc)?}
 
 I worked on many cloud native services for a ride healing company. These services mostly handle the events (around
-300k event per second) and are implemented in Go. My contribution is desig and then implementation mostly. Beside that
-I designed our CI/CD pipelines for Gitlab and Github.
+300k event per second) and are implemented in Go. My contributions were desgining and then implementation mostly.
+Beside that I designed our CI/CD pipelines in GitLab and GitHub.
 
-One my first production projects was writing a container migration tool using OpenVZ. In the SDN environment we wanted
-to make our application resiliant and because of that we want to migrate them into another machine and then restart them.
-Project back to 2013 and we choose OpenVZ to manage our containers. We provide a shared state repository (using Memcache)
-and migrate application into different machines and they can easily track their state by reconnecting into the shared
+One my first production projects was writing a container migration tool using \href{https://openvz.org/}{OpenVZ}.
+In the SDN environment we wanted to make our application resiliant and because of that we wanted to migrate them into
+another machine and then restart them in case any issue with their current bare metal.
+Project goes back to 2013 and we chose OpenVZ to manage our containers. We provided a shared state repository (using \href{https://memcached.org/}{Memcached})
+and migrated application into different machines and they cloud easily tracked their state by reconnecting into the shared
 repository.
 
 One of the huge projects that I worked on, is Surge. Our company wants to change the ride price based on the demand.
-I led the project from the begining, first we devide cities into districts and then use driver location events to find
-out number of available drivers in each region. Then we use the get price event to figure out the number of passengers.
-We have a lots of events on both of these channels, so we need to handle them properly. We devide service into two part,
-one part consume these events and do the 15 minutes widowing (so it reduces the data volume a lot) and
-push them into our NATS cluster and then second part reads these batch from our NATS cluster and calculate
+I led the project from the begining, first we devided cities into districts and then used driver location events to find
+out number of available drivers in each region. Then we used the get price events to figure out the number of passengers.
+We had lots of events on both of these channels, so we needed to handle them properly. We devided the service into two parts,
+one part consumes these events and does the 15 minutes windowing (so it reduces the data volume to a great extend) and
+pushes them into our NATS cluster and then second part reads these batches from our NATS cluster and calculates
 the percentage that we need to change the price.
+Testing the surge project is done by the QA team but me and our team helped them during the testing by providing
+the required environment on Kubernetes and the conditions they wanted.
+Documentation happend for this future from the begining on Confluence by the product team and we updated it
+based on the implementation at the end. The code and design also documented in the code base and GitLab wiki.
+
+I also designed the machine learning pipeline for our company. This pipeline gathers data from our NATS cluster,
+moves the date into the Kafka (which is set up by us using \href{https://strimzi.io/}{Strimzi} Operator)
+and then we process the data using Kafka Stream and moves them into the Spark and Cassandra for the machine learning
+team. This project required a very close coorporation between us and the machine learning team to test and make
+sure we have all required data. We needed to make sure we don't loss any data here and for that we used blackbox monitoring
+by writing a consumer that checks the number of recieved events with database.
 
 I have also contributed in the open source messaging system like
 \href{https://github.com/nats-io/}{NATS} and \href{https://github.com/emqx}{EMQX}.
@@ -304,7 +316,8 @@ Internet Engineering. Since then I try to teach at least one of these course eac
 \section{Context}
 
 \noindent
-\textbf{Outline your thoughts on the mission of Canonical. What is it about the company's purpose and goals which is most appealing to you? What is it that you think is risky or unappealing?}
+\textbf{Outline your thoughts on the mission of Canonical. What is it about the company's purpose and goals which is most appealing to you?
+What is it that you think is risky or unappealing?}
 
 \noindent
 \textbf{What would you like to achieve in career and skills development?}
