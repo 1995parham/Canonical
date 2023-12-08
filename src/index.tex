@@ -238,19 +238,30 @@ need them even for a small B2B project.
 \textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers
 should follow in this regard? What are examples of the best open source documentation you have worked with?}
 
-Documentation should happen in code, so we can make sure they are updated. The outdated documentation is worst than
-not having the documentation because outdated one make people to do the things in a wrong way instead of at least
+Documentation should happen the in code, so we can make sure they are updated. The outdated documentation is worse than
+not having the documentation because outdated ones make people to do the things in a wrong way instead of at least
 asking from someone else.
 
 I personally prefer to use comments in the code and make sure they are updated in the review session. Other kind of
-documentation can happen in Wiki so we can make sure they are updated one in a while when we want to do a release.
-
+documentation can happen in Wiki so we can make sure they are updated once in a while when we want to do a release.
 Non-technical people may prefer Confluence (or other documentation tools) so I think we can stick to them only for
-non-technical documentation about the features and the way want them to work.
+non-technical documentation about the features and the way they work.
+
+For the open source projects README should contain at least an introduction to project and some easy steps to run
+and test the project. Then we can provide references to running project on production etc. There should be at least
+some rules and guidlines about contribution. Contributers can read the code and the comments to figure out about the
+internal of the projects but it is better to have a reference about our high level design.
+
+In the bigger project, we can provide an RFC procedure for following up architectural and protocol changes.
+Using RFC, we can follow the requested changes and prioritize them. Also, we can reference them in the code
+so people can see and dig deeper in the RFC to know more about that part of code.
 
 In the IoT world, if possible it would be good to use Protocols that has schema built-in their nature like ProtoBuf or
-Apache Avro (which is used by \href{https://github.com/kaaproject/kaa}{Kaa} as far as I remember). Using this protocols
-remove the need of having another document for schema and people can safely using those in their code.
+Apache Avro (which is used by \href{https://github.com/kaaproject/kaa}{Kaa} as far as I remember). Using these protocols
+remove the need of having another document for schema and people can safely use those in their code.
+
+One of the best open source projects in the docuemtation I've seen is \href{https://docs.djangoproject.com/en/5.0/}{Django}.
+They document all of the features with at least one working example which is easy to read and use.
 
 \section{Education}
 
