@@ -215,24 +215,24 @@ scope of this project.
 \textbf{Outline your thoughts on performance in software engineering. How do you ensure that your team's code is performant?
 Can you describe hard learning in this regard?}
 
-I've worked in a company with millions request per day and during that time I learnt about the performance a lot.
+I've worked in a company with millions request per day and during that time I learnt about performance a lot.
 Each commit may cause a memory leak or increase response time and we cannot check this using CI/CD for every commit.
-Back then we setup a load testing pipeline for each release and we did a load test using \href{https://github.com/grafana/k6}{k6}.
+Back then we setup a load testing pipeline for each release and we did the load test using \href{https://github.com/grafana/k6}{k6}.
 
-After getting the approval and doing the release we need to monitor and make sure we are in a good shape.
+After getting the approval and doing the release we needed to monitor and make sure we are in a good shape.
 For monitoring we used \href{https://prometheus.io/}{Prometheus} and \href{https://grafana.com/}{Grafana} to monitor
-metrics (that we exporeted in the application). We used histogram for response time (and the monitor its p50, p90 and p99),
+metrics (that we exporeted in the application). We used histogram for response time (and monitor its p50, p90 and p99),
 we had counters for number of requests that we are processing in the moment, etc.
 
-Using these metrics we can figure out issues but we need to have more detail view of the problem so we can resolve it.
-For getting more insight we used \href{https://pyroscope.io/}{Pyroscope} and tracing. By tracing we can figure out where are the bottlenechs
-and the do our best to resolve them. Pyroscope actually useful when we need way more detail about the problem
+Using these metrics we can figure out issues but we need to have more detailed view of the problem, so we can resolve it.
+For getting more insight we used \href{https://pyroscope.io/}{Pyroscope} and tracing. By tracing we can figure out where are the bottlenecks
+and we do our best to resolve them. Pyroscope is actually useful when we need way more detail about the problem
 and we only ran it in our staging environments.
 
-There was time that our team consider these tools as a fancy tools and then on production we got into the trobble,
-that our queries takes more than 30 seconds and AWS forcibly close our connections then we ran into the problem of
-find which query takes longer than other and this situation taught us these tools are not facny we alway needing them
-even for a small B2B project.
+There was a time that our team considered these tools fancy and then on production we got into trouble,
+that our queries toke more than 30 seconds and AWS forcibly closed our connections then we ran into the problem of
+finding which queries take longer than others and this situation taught us these tools are not facny we always
+need them even for a small B2B project.
 
 \noindent
 \textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers
