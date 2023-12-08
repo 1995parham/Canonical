@@ -123,14 +123,15 @@ pushes them into our NATS cluster and then second part reads these batches from 
 the percentage that we need to change the price.
 Testing the surge project is done by the QA team but me and our team helped them during the testing by providing
 the required environment on Kubernetes and the conditions they wanted.
-Documentation happend for this future from the begining on Confluence by the product team and we updated it
-based on the implementation at the end. The code and design also documented in the code base and GitLab wiki.
+continues documentation for this feature was done from the begining on Confluence by the product team and we updated it
+based on the implementation at the end of each phase of the project.
+The code and design also were documented in the code base and GitLab wiki.
 
 I also designed the machine learning pipeline for our company. This pipeline gathers data from our NATS cluster,
-moves the date into the Kafka (which is set up by us using \href{https://strimzi.io/}{Strimzi} Operator)
-and then we process the data using Kafka Stream and moves them into the Spark and Cassandra for the machine learning
+moves the data into Kafka (which is set up by us using \href{https://strimzi.io/}{Strimzi} Operator)
+and then we process the data using Kafka Stream and feeds them into Spark applications and Cassandra for the machine learning
 team. This project required a very close coorporation between us and the machine learning team to test and make
-sure we have all required data. We needed to make sure we don't loss any data here and for that we used blackbox monitoring
+sure we have all required data. We needed to make sure we don't lose any data here and for that we used blackbox monitoring
 by writing a consumer that checks the number of recieved events with database.
 
 I have also contributed in the open source messaging system like
