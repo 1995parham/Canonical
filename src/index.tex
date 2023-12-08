@@ -3,17 +3,30 @@
 \textbf{How would you describe your level of experience as a professional software engineer?
 What are your strengths as a software engineer?}
 
-I started my carrier back in the university, there I wrote C code for embedded devices like Arduino and FGPA.
+I started my carrier back in the university, there I wrote C code for embedded devices like Arduino and FPGA.
 I wrote Kernel modules for communicating with FPGA Hardware interfcaces and I did implementation of FAT file system
-for our monelight kernel project.
-This increase my knowledge about the operating systems and networking. Then our lab got bigger and I had chance
-to write an IoT Platform that communicate with embedded devices using LoRaWAN, Zigbee and NRF and has a ReSTFul
-API for users. This push me towards backend development role. As a Backend Developer I mainly used Go and design
-systems for handling heavy loads. During the time that I've worked as Backend Engineer I got chance to own my services
-on Kubernetes which tought me lots of things about Infrastructure, Operators and Infrastructure as a Code.
+for our Monolithic Kernel project.
+This increased my knowledge about the operating systems and networking. Then our lab got bigger and I had a chance
+to write an IoT Platform that communicates with embedded devices using LoRaWAN, Zigbee and nRF and has a RESTful
+API for users. This pushed me towards backend development role. As a Backend Developer I mainly used Go and designed
+systems for handling heavy loads. During the time that I've worked as Backend Engineer I got a chance to own my services
+on \href{https://kubernetes.io/}{Kubernetes} which tought me lots of things about Infrastructure,
+Operators and Infrastructure as a Code.
 
-Based on these experiences, I consider myself as a Senior software engineer and I think my main strengths is having
-academic knowledge besides having working experience.
+Based on 8+ years of experience in software engineering, I consider myself as a Senior software engineer and
+I think my main strengths is having academic knowledge besides having working experience.
+Also, as a service owner I was on-call and had many experience of doing fire fighting during the incidents so I have
+tshooting as another strengths.
+
+Recent years I got a chance to lead design services that operate between more than 50 teams at our company and
+during that time I always using the latest version of Go and setup NATS in our company as our messaging system
+for the first time and then doing workshops for our people to start using it. Then company needs to have machine
+learning pipeline and I setup it using Airflow, Spark and Kafka. Because these I can consider adaptibility and
+continues learning as my other strengths.
+
+At the end, I always try to own products and learn more about their domain, so I can have more opinions about them.
+For example when I worked at oil industry I did my best to learn everything about pumpjack and oil wells because
+writing a good software always requires domain knowledge.
 
 \textbf{What are your favourite software development environments, languages, and tools? Elaborate on your choices.}
 
@@ -116,4 +129,12 @@ I've worked in a company with millions request per day and during that time I le
 Each commit may cause a memory leak or increase response time and we cannot check this using CI/CD for every commit.
 Back then we setup a load testing pipeline for each release and we did a load test using \href{https://github.com/grafana/k6}{k6}.
 
-\textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers should follow in this regard? What are examples of the best open source documentation you have worked with?}
+After getting the approval and doing the release we need to monitor and make sure we are in a good shape.
+For monitoring we used \href{https://prometheus.io/}{Prometheus} and \href{https://grafana.com/}{Grafana} to monitor
+metrics (that we exporeted in the application). We used histogram for response time (and the monitor its p50, p90 and p99),
+we had counters for number of requests that we are processing in the moment, etc.
+
+Using these metrics we can figure out issues but we need to have more detail view of the problem so we can resolve it.
+
+\textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers
+should follow in this regard? What are examples of the best open source documentation you have worked with?}
