@@ -153,18 +153,17 @@ Containers are lighter than VM because they only abstract the file system, netwo
 features in Linux kernel (cotainers are based on cgroup, namespace and union filesystem of Linux Kernel).
 I mean using container means you are actually using the same kernel as the host running that container.
 
-VMs are use more resources when compared to containers because they are emulating the whole system,
+VMs use more resources when compared to containers because they are emulating the whole system,
 but they are more secure because this separation happen in lower layers of the system compared
 to containers in which they are provided by operating systems.
 
 When you want to change operating system settings or want to have different type of operating systems then you cannot
 use containers.
 
-One of the issues that I have using IoT devices were upgrading their software.
+One of the issues that I had using IoT devices were upgrading their software.
 You have lots of devices out there, and you need to push a firmware upgrade to them.
-It is costly and in case of having issue you may need to get your boards from customers and flash them
+It is costly and in case of having any problem you may need to get your boards from customers and flash them
 which is not possible most of the time.
-
 On our Home automation platform we resolved this issue using containers. We had a Raspberry Pi board in each house
 and it was capable of running applications in docker containers, so we just asked it to pull and run an image then
 you can have the required application in your house. Even we could disable applications when you asked for or upgrade
