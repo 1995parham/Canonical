@@ -1,0 +1,106 @@
+\section{Career development}
+
+\textbf{How would you describe your level of experience as a professional software engineer?
+What are your strengths as a software engineer?}
+
+I started my carrier back in the university, there I wrote C code for embedded devices like Arduino and FGPA.
+I wrote Kernel modules for communicating with FPGA Hardware interfcaces and I did implementation of FAT file system
+for our monelight kernel project.
+This increase my knowledge about the operating systems and networking. Then our lab got bigger and I had chance
+to write an IoT Platform that communicate with embedded devices using LoRaWAN, Zigbee and NRF and has a ReSTFul
+API for users. This push me towards backend development role. As a Backend Developer I mainly used Go and design
+systems for handling heavy loads. During the time that I've worked as Backend Engineer I got chance to own my services
+on Kubernetes which tought me lots of things about Infrastructure, Operators and Infrastructure as a Code.
+
+Based on these experiences, I consider myself as a Senior software engineer and I think my main strengths is having
+academic knowledge besides having working experience.
+
+\textbf{What are your favourite software development environments, languages, and tools? Elaborate on your choices.}
+
+I really enjoying \href{Neovim}{} and \href{vim}{} and I use them for daily development. Sometimes because
+of having different versions of software (specially when using Python) I switch to \href{VSCode}{} and use
+Dev Containers (They are really great wehn you want to have same version of everything between your team members)
+
+I fall in love with Go and C/C++. I use Bash sepcially because of my dotfiles framework. I had experience with
+Python and Cython too. I use C for embedded device programming or when I need to implement something into
+Kernel or Kernel modules. I use Go and Python for implementing CLI tools or services.
+
+I really like to learn Rust but my knowledge now is limited to implement CLI tools.
+
+\textbf{How extensive is your experience of C++ software engineering? Outline the applications that you have led in C++,
+and your takeaways from that experience.}
+
+I used C and C++ lots of time. I implement FAT file system in C which is my first big project using C. When I worked
+at our university IoT team, I led a project for making a Link Layer protocol over nRF. This project is about implementing
+an ARQ mechanisem which we used stop-and-wait, becuase we don't have many messages to deliver into devices and we want
+to reduce the computation on the device side.
+Then I worked with a team to implement a Dashboard for our home automation system using Qt Framework and C++. It was
+touch dashboard we ran on our home panel which is powered by a Raspberry Pi 2.
+
+The main issue for me was memory and lock management. For having a consistent view of our memory leak we did lots
+of test with \href[Valgrind]{}.
+
+\textbf{Describe top Linux projects (incl. containers) you have worked on (purpose, market, etc.).
+What are your contributions (design, implementation, testing, documentation, CI/CD, etc)?}
+
+I worked on many cloud native services for a ride healing company. These services mostly handle the events (around
+300k event per second) and are implemented in Go. My contribution is desig and then implementation mostly. Beside that
+I designed our CI/CD pipelines for Gitlab and Github.
+
+One my first production projects was writing a container migration tool using OpenVZ. In the SDN environment we wanted
+to make our application resiliant and because of that we want to migrate them into another machine and then restart them.
+Project back to 2013 and we choose OpenVZ to manage our containers. We provide a shared state repository (using Memcache)
+and migrate application into different machines and they can easily track their state by reconnecting into the shared
+repository.
+
+One of the huge projects that I worked on, is Surge. Our company wants to change the ride price based on the demand.
+I led the project from the begining, first we devide cities into districts and then use driver location events to find
+out number of available drivers in each region. Then we use the get price event to figure out the number of passengers.
+We have a lots of events on both of these channels, so we need to handle them properly. We devide service into two part,
+one part consume these events and do the 15 minutes widowing (so it reduces the data volume a lot) and
+push them into our NATS cluster and then second part reads these batch from our NATS cluster and calculate
+the percentage that we need to change the price.
+
+I have also contributed in the open source messaging system like NATS and EMQ. These contribution mostly happened
+on their Operators and Helm charts.
+
+\section{Experience}
+
+\textbf{Please explain the differences between running an application natively, in a container, or VM.
+How are containers useful in IoT deployments?}
+
+When you run an application natively you need to have every library and dependencies of the app on your system.
+Using VM or Container you can abstract them away and have a working application by just running it without
+having any concerns about dependency conflict.
+Containers are lighter than VM because they only abstract the file system layer, I mean using container
+you are actually using the same kernel as the host.
+
+VMs are use more resources when comapred to containers because they are emulating the whole system but they are
+more secure because this seperation happen in lower layers of the system comared to containers in which they
+are provided by operating systems.
+
+When you want to change operating system settings or want to have different type of operating systems then you cannot
+use containers.
+
+One the issues that I have using IoT devices were upgrading their software. You have lots of devices out there
+and you need to push a frameware upgrade to them. It is costly and in case of havnig issue you may need to get
+your boards from customers and flash them which is not possible most of the time.
+
+On our Home automation platform we resolved this issue using containers. We have Raspberry Pi board in each house
+and it capable of running applications in docker container, so we just ask it to pull and run an image then
+you can have the required application in your house. Even we can disable applications when you ask for or upgrade
+them remotely just by asking to pull a new image without having any need to flash or etc.
+
+This solution was a success for our team and the main drawback on that time actually was not having the same
+option for our other boards (like Arduino Uno).
+
+\textbf{Describe your experience with IoT and edge applications (hardware, operating system, networking, protocols, etc).}
+
+I worked on IoT application in Home automation, agriculture and oil industry. I worked with networking protocols
+like LoRaWAN, nRF, Zigbee, BLE etc.
+
+I worked with operating systems like \href{https://archlinuxarm.org/}{Arch Linux ARM}, \href{https://www.raspbian.org/}{Raspbian},
+\href{https://www.riot-os.org/}{Riot}, Ubuntu, Ubuntu Core
+
+I worked on the Hardwars like Raspberry Pi, Nvidia Jetson Nano, Arduin, Zylinx
+
