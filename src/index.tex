@@ -18,28 +18,45 @@ I think my main strengths is having academic knowledge besides having working ex
 Also, as a service owner I was on-call and had many experience of doing fire fighting during the incidents so I have
 tshooting as another strengths.
 
-Recent years I got a chance to lead design services that operate between more than 50 teams at our company and
-during that time I always using the latest version of Go and setup NATS in our company as our messaging system
-for the first time and then doing workshops for our people to start using it. Then company needs to have machine
-learning pipeline and I setup it using Airflow, Spark and Kafka. Because these I can consider adaptibility and
+Recent years I got a chance to lead designing of the services that operate between more than 50 teams at our company and
+during that time I've always used the latest version of Go and setup NATS in our company as a messaging system
+for the first time and then doing workshops for our people to start using it. Then company needed to have machine
+learning pipeline and I set it up using Airflow, Spark and Kafka. Because of these, I can consider adaptibility and
 continues learning as my other strengths.
 
 At the end, I always try to own products and learn more about their domain, so I can have more opinions about them.
-For example when I worked at oil industry I did my best to learn everything about pumpjack and oil wells because
+For example when I worked at oil industry I did my best to learn everything about pumpjacks and oil wells because
 writing a good software always requires domain knowledge.
 
 \textbf{What are your favourite software development environments, languages, and tools? Elaborate on your choices.}
 
-I really enjoying \href{https://neovim.io/}{Neovim} and \href{https://www.vim.org/}{vim} and I use them for daily development.
-Sometimes because of having different versions of software (specially when using Python) I switch to \href{VSCode}{https://code.visualstudio.com/}
-and use Dev Containers (They are really great wehn you want to have same version of everything between your team members)
+I really enjoy \href{https://neovim.io/}{Neovim} and \href{https://www.vim.org/}{vim} and I use them for daily development
+because they are easy to use and heavily customizable and I love to spending time to make my editor
+(My configuration are available on GitHub, but I cannot reference them here because I want to this document be anonymous).
+Sometimes because of having different versions of software (specially when using Python) I switch to \href{https://code.visualstudio.com/}{VSCode}
+and use Dev Containers (They are really great when you want to have same version of everything between your team members)
 
 I am in love with Go and C/C++. I use Bash sepcially because of my dotfiles framework (Yes, I have framework for my dotfiles
-and consistently doing a fresh install of my ArchLinux to test them). I had experience with
+and consistently doing a fresh install of my ArchLinux to test them). I have experience with
 Python and Cython too. I use C for embedded device programming or when I need to implement something into
 Kernel or Kernel modules. I use Go and Python for implementing CLI tools or services.
+Based on situations I had to write code in PHP, Scala, Java, NodeJS and even Perl.
 
-I really like to learn Rust but my knowledge now is limited to implement CLI tools.
+I love C/C++ because they are low-level and you have control over everything. Using C/C++ you need to know
+about Operating system, difference between Stack and Heap and I really enjoy using my knowledge when writing code.
+When I first time saw Go, I think it is C but for writing high level services and start writing HTTP server,
+CLI tools, etc in Go and it was good. So, I use Go since then for these kind of things. Python is good too because
+you can customize your object as much as you can (you can override operators like what you can do in C++).
+
+Daily, I use \href{https://www.docker.com/}{Docker} and \href{https://podman.io/}{Podman} as container management tools,
+Git as version control system, GitHub and GitLab and their CI/CD platforms, ArchLinux as main operating system, Ubuntu
+on servers, KVM and libvirtd to have virtual machines on my system, MiniKube to launch kubernetes locally,
+screen for connecting over serial interface, Systemd to manage my period jobs and services on Linux (I use plist
+in macOS when I fored to use macOS),
+many CLI tools like \href{https://github.com/stern/stern}{stern}, kubectl, \href{https://krew.sigs.k8s.io/}{krew}
+
+I prefer to run applications thought containers instead of installing them because it removes the burden of installing
+dependencies. I always prefer CLI tools because using GUI is hard to me and always prefer the truly open source projects.
 
 \textbf{How extensive is your experience of C++ software engineering? Outline the applications that you have led in C++,
 and your takeaways from that experience.}
@@ -123,7 +140,20 @@ Beside those, I had experience doing cross-completion using \href{https://github
 
 \textbf{Outline your thoughts on open source software. What is important to get right when you are working on open source projects?}
 
-\textbf{Outline your thoughts on performance in software engineering. How do you ensure that your team's code is performant? Can you describe hard learning in this regard?}
+I really love Open source softwares, I created an open source organization for each company I worked for and leading
+the OSS division of the company to release the tools that are useful in GitHub. I think by helping open source world
+you will get feedback and see is your software really needed or not.
+
+The main thing for me in an open source project is the documentation, people needs to know how to use your software,
+how they can extend it, etc. On the next level you need to always maitain the project or archive it because
+when people using it they need the bugs to resolve, issues to address, etc.
+
+Beside our duties, people may need features that are not in our roadmap or scope and we need to address these very
+clearly and say for example we are not resolving it for now but may in future or we think this feature is not the
+scope of this project.
+
+\textbf{Outline your thoughts on performance in software engineering. How do you ensure that your team's code is performant?
+Can you describe hard learning in this regard?}
 
 I've worked in a company with millions request per day and during that time I learnt about the performance a lot.
 Each commit may cause a memory leak or increase response time and we cannot check this using CI/CD for every commit.
@@ -135,6 +165,88 @@ metrics (that we exporeted in the application). We used histogram for response t
 we had counters for number of requests that we are processing in the moment, etc.
 
 Using these metrics we can figure out issues but we need to have more detail view of the problem so we can resolve it.
+For getting more insight we used \href{https://pyroscope.io/}{Pyroscope} and tracing. By tracing we can figure out where are the bottlenechs
+and the do our best to resolve them. Pyroscope actually useful when we need way more detail about the problem
+and we only ran it in our staging environments.
+
+There was time that our team consider these tools as a fancy tools and then on production we got into the trobble,
+that our queries takes more than 30 seconds and AWS forcibly close our connections then we ran into the problem of
+find which query takes longer than other and this situation taught us these tools are not facny we alway needing them
+even for a small B2B project.
 
 \textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers
 should follow in this regard? What are examples of the best open source documentation you have worked with?}
+
+Documentation should happen in code, so we can make sure they are updated. The outdated documentation is worst than
+not having the documentation because outdated one make people to do the things in a wrong way instead of at least
+asking from someone else.
+
+I personally prefer to use comments in the code and make sure they are updated in the review session. Other kind of
+documentation can happen in Wiki so we can make sure they are updated one in a while when we want to do a release.
+
+Non-technical people may prefer Confluence (or other documentation tools) so I think we can stick to them only for
+non-technical documentation about the features and the way want them to work.
+
+In the IoT world, if possible it would be good to use Protocols that has schema built-in their nature like ProtoBuf or
+Apache Avro (which is used by \href{https://github.com/kaaproject/kaa}{Kaa} as far as I remember). Using this protocols
+remove the need of having another document for schema and people can safely using those in their code.
+
+\section{Education}
+
+\textbf{How did you rank in your final year of high school in mathematics? Were you a top student? On what basis would you say that?}
+
+I was a top student (among 10\%) for the matmathmatics and computer programming.
+
+\textbf{How did you rank in your final year of high school, in your home language? Were you a top student? On what basis would you say that?}
+
+Our home language is Persian and no I was not a top student.
+
+\textbf{Please state your high school graduation results or university entrance results, and explain the grading system used. For example, in the US, you might give your SAT or ACT scores.
+In Germany, you might give your scores out of a grading system of 1-5, with 1 being the best.}
+
+In Iran we have an enternance exam in which I ranked 646 among all of the students at that year (almost 100,000 students)
+and it resulted me to enter Amirkabir University which is the third university in our country.
+
+\textbf{Can you make a case that you are in the top 5\% in your academic year, or top 1\%, or even higher?
+If so please outline that case. Make reference where possible to standardised testing results at regional or national level, or university entrance results. Please explain any specific grading system used.}
+
+During my M.Sc. and B.Sc. I was top student in my class and got graduated with 18.94 out of 20 for Bachelor and 18.77 out of 20 for Master.
+(references exist upon request)
+
+\textbf{What sort of high school student were you? Outside of class, what were your interests and hobbies? What would your high school peers remember you for?}
+
+I am bookworm person since high school and I spent all of my free time in the high school library.
+Beside reading books, I really love networking and always friends remember me for making their network to play Counter Strike.
+
+\textbf{Which university and degree did you choose? What other universities did you consider, and why did you select that one?}
+
+During high school I fell in love with computers (specially networking) and because of that I chose to pursue
+it in the university too. Among the university I choosed Amirkabir University of Tech. because of my rank in the enterance exam,
+for going into two other universities (that have better rank compare to Amirkabir) I need a better rank.
+
+\textbf{Overall, what was your degree result and how did that reflect on your ability? Please help us understand the grading system for your results.}
+
+I was the first in my class during Bachelor and Master, and I think it happened because I really love computers,
+operating systems and networking. I think the knowledge I grasped in the university is helping me a lot, I always
+try to understand the problems first and make think logical before approaching them because computers are logical
+and don't do anything random, and this approach always helping me to figure out the root cause.
+
+\textbf{During all of your education years, from high school to university, can you describe any achievements that were truly exceptional?}
+
+During Bachelor, I participated in National Olympiad of Computer Networking and I ranked 4 in the first round and ranked
+10 during the second round.
+During Highschool, I participated in national Olympiad in Informatics and I only can passed two round of the exams, so
+I didn't choice to participate in International Olympiad in Informatics from our country.
+
+\textbf{What leadership roles did you take on during your education?
+Did you conceive of, and drive to completion, any initiatives outside of your required classwork?}
+
+During my education, I led technical parts of the events that we were held in our college of Computer Engineering including
+Online and Onsite Programming competition, Linux and Open source festivals, etc.
+
+Beside those events, I led an open source project in which we used \href{https://freeradius.org/}{FreeRadius}
+to control the internet usage of students, professors, etc.
+
+I really love teaching and starting from Bachelor I was teaching assistent for at least for one course.
+After finishing my Master, uinversity invited me to teach some technical courses like C Programming and
+Internet Engineering. Since then I try to teach at least one of these course each semester.
