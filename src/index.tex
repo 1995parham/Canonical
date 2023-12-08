@@ -60,6 +60,7 @@ in macOS when I fored to use macOS),
 Ansible and Terraform managing systems using code,
 \href{https://github.com/tmux}{tmux} as terminal multiplexer,
 \href{https://github.com/alacritty}{Alacritty} as terminal emulator,
+\href{https://swaywm.org/}{Sway} as windowing manager and \href{https://wayland.freedesktop.org/}{Wayland} as display server,
 many CLI tools like \href{https://github.com/stern/stern}{stern}, kubectl, \href{https://krew.sigs.k8s.io/}{krew}
 
 I prefer to run applications thought containers instead of installing them because it removes the burden of installing
@@ -69,15 +70,21 @@ dependencies. I always prefer CLI tools because using GUI is hard to me and alwa
 \textbf{How extensive is your experience of C++ software engineering? Outline the applications that you have led in C++,
 and your takeaways from that experience.}
 
-I used C and C++ lots of time. I implement FAT file system in C which is my first big project using C. When I worked
-at our university IoT team, I led a project for making a Link Layer protocol over nRF. This project is about implementing
-an ARQ mechanisem which we used stop-and-wait, becuase we don't have many messages to deliver into devices and we want
-to reduce the computation on the device side.
+I used C and C++ lots of time.
+I participated in Eudyptula Challenge and start my Kernel journey from there.
+I implemented FAT file system in C which is my first big project using C. When I worked
+at our university IoT team, I led a project for making a Link Layer protocol over nRF physical layer to make it stable.
+This project is about implementing an ARQ mechanisem which we choosed stop-and-wait, becuase we didn't have many messages
+to deliver into devices and we wanted to reduce the computation on the device side.
 Then I worked with a team to implement a Dashboard for our home automation system using Qt Framework and C++. It was
 touch dashboard we ran on our home panel which is powered by a Raspberry Pi 2.
+Then moved for another project for monitoring farms using LoRaWAN, we implemented the frameware code using C++ for reading
+sensors and publishing data using LoRaWAN. On the server side we used \href{https://www.chirpstack.io/}{Chirpstack}
+to gather data and published them into our IoT Platform which is writen by me again but in Go
+(At the time of tha project Chirpstack was named loraserver.io).
 
-The main issue for me was memory and threading management. For having a consistent view of our memory leak we did lots
-of test with \href{https://valgrind.org/}{Valgrind}.
+The main issue for me using C/C++ was memory and threading management.
+For having a consistent view of our memory leak we did lots of test with \href{https://valgrind.org/}{Valgrind}.
 
 \noindent
 \textbf{Describe top Linux projects (incl. containers) you have worked on (purpose, market, etc.).
