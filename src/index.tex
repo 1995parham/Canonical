@@ -84,7 +84,7 @@ to deliver into devices and we wanted to reduce the computation on the device si
 Then I worked with a team to implement a Dashboard for our home automation system
 using \href{https://www.qt.io/product/framework}{Qt Framework} and C++. It was
 a touch dashboard we ran on our home panel which is powered by a Raspberry Pi 2.
-Then moved for another project for monitoring farms using LoRaWAN, we implemented the frameware code using C++ for reading
+Then moved for another project for monitoring farms using LoRaWAN, we implemented the firmware code using C++ for reading
 sensors and publishing data using LoRaWAN. On the server side we used \href{https://www.chirpstack.io/}{Chirpstack}
 to gather data and published them into our IoT Platform which is writen by me again but in Go
 (At the time of that project, Chirpstack was named loraserver.io).
@@ -146,28 +146,29 @@ and \href{https://helm.sh/}{Helm} charts.
 \textbf{Please explain the differences between running an application natively, in a container, or VM.
 How are containers useful in IoT deployments?}
 
-When you run an application natively you need to have every library and dependencies of the app on your system.
+When you run an application natively you need to have every libraries and dependencies of the app installed on your system.
 Using VM or Container you can abstract them away and have a working application by just running it without
-having any concerns about dependency conflict.
-Containers are lighter than VM because they only abstract the file system layer, I mean using container
-you are actually using the same kernel as the host.
+having any concerns about dependency conflicts.
+Containers are lighter than VM because they only abstract the file system, networking, timezone and other namespaced
+features in Linux kernel (cotainers are based on cgroup, namespace and union filesystem of Linux Kernel).
+I mean using container means you are actually using the same kernel as the host running that container.
 
-VMs are use more resources when comapred to containers because they are emulating the whole system but they are
-more secure because this seperation happen in lower layers of the system comared to containers in which they
-are provided by operating systems.
+VMs are use more resources when compared to containers because they are emulating the whole system,
+but they are more secure because this separation happen in lower layers of the system compared
+to containers in which they are provided by operating systems.
 
 When you want to change operating system settings or want to have different type of operating systems then you cannot
 use containers.
 
-One the issues that I have using IoT devices were upgrading their software. You have lots of devices out there
-and you need to push a frameware upgrade to them. It is costly and in case of havnig issue you may need to get
-your boards from customers and flash them which is not possible most of the time.
+One of the issues that I have using IoT devices were upgrading their software.
+You have lots of devices out there, and you need to push a firmware upgrade to them.
+It is costly and in case of having issue you may need to get your boards from customers and flash them
+which is not possible most of the time.
 
-On our Home automation platform we resolved this issue using containers. We have Raspberry Pi board in each house
-and it capable of running applications in docker container, so we just ask it to pull and run an image then
-you can have the required application in your house. Even we can disable applications when you ask for or upgrade
+On our Home automation platform we resolved this issue using containers. We had a Raspberry Pi board in each house
+and it was capable of running applications in docker containers, so we just asked it to pull and run an image then
+you can have the required application in your house. Even we could disable applications when you asked for or upgrade
 them remotely just by asking to pull a new image without having any need to flash or etc.
-
 This solution was a success for our team and the main drawback on that time actually was not having the same
 option for our other boards (like Arduino Uno).
 
