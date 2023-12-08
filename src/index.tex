@@ -107,3 +107,13 @@ I worked on the Hardwars like Raspberry Pi, Nvidia Jetson Nano, Arduin (Uno, Doe
 STM32F303, STM32F746.
 
 Beside those, I had experience doing cross-completion using \href{https://github.com/crosstool-ng/crosstool-ng}{crosstool-ng}.
+
+\textbf{Outline your thoughts on open source software. What is important to get right when you are working on open source projects?}
+
+\textbf{Outline your thoughts on performance in software engineering. How do you ensure that your team's code is performant? Can you describe hard learning in this regard?}
+
+I've worked in a company with millions request per day and during that time I learnt about the performance a lot.
+Each commit may cause a memory leak or increase response time and we cannot check this using CI/CD for every commit.
+Back then we setup a load testing pipeline for each release and we did a load test using \href{https://github.com/grafana/k6}{k6}.
+
+\textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers should follow in this regard? What are examples of the best open source documentation you have worked with?}
