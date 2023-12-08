@@ -48,23 +48,25 @@ Based on situations I had to write code in PHP, Scala, Java, NodeJS and even Per
 
 I love C/C++ because they are low-level and using them you have control over everything. Using C/C++ you need to know
 about Operating system, difference between Stack and Heap and I really enjoy using my knowledge when writing code.
-When I first time saw Go, I think it is C but for writing high level services and start writing HTTP server,
-CLI tools, etc in Go and it was good. So, I use Go since then for these kind of things. Python is good too because
+The first time I saw Go, I thought of it as C but for writing high level services and started writing HTTP servers,
+CLI tools, etc in Go. I used Go since then for use cases. I like Python too because
 you can customize your object as much as you can (you can override operators like what you can do in C++).
 
 Daily, I use \href{https://www.docker.com/}{Docker} and \href{https://podman.io/}{Podman} as container management tools,
 Git as version control system, GitHub and GitLab and their CI/CD platforms, ArchLinux as main operating system, Ubuntu
 on servers, KVM and libvirtd to have virtual machines on my system, MiniKube to launch kubernetes locally,
-screen for connecting over serial interface, Systemd to manage my period jobs and services on Linux (I use plist
-in macOS when I fored to use macOS),
-Ansible and Terraform managing systems using code,
+screen for connecting over serial interfaces, \href{https://systemd.io/}{Systemd} to manage my period jobs and services
+on Linux (I use \href{https://www.launchd.info/}{launchd} in macOS when I am fored to use macOS),
+\href{https://www.ansible.com/}{Ansible} and \href{https://www.terraform.io/}{Terraform} for managing systems using code,
 \href{https://github.com/tmux}{tmux} as terminal multiplexer,
 \href{https://github.com/alacritty}{Alacritty} as terminal emulator,
 \href{https://swaywm.org/}{Sway} as windowing manager and \href{https://wayland.freedesktop.org/}{Wayland} as display server,
-many CLI tools like \href{https://github.com/stern/stern}{stern}, kubectl, \href{https://krew.sigs.k8s.io/}{krew}
+many CLI tools like \href{https://github.com/stern/stern}{stern},
+\href{https://kubernetes.io/docs/reference/kubectl/}{kubectl}, \href{https://krew.sigs.k8s.io/}{krew},
+\href{https://helm.sh/}{helm}, etc.
 
-I prefer to run applications thought containers instead of installing them because it removes the burden of installing
-dependencies. I always prefer CLI tools because using GUI is hard to me and always prefer the truly open source projects.
+I prefer to run applications using containers instead of installing them because it removes the burden of installing
+dependencies. I always prefer CLI tools over GUI to me and always prefer the truly open source projects.
 
 As ArchLinux user, I maintain packages on Arch User Repository too for the open source tools that doesn't exist
 in the official repositories.
@@ -74,20 +76,28 @@ in the official repositories.
 and your takeaways from that experience.}
 
 I used C and C++ lots of time.
-I participated in Eudyptula Challenge and start my Kernel journey from there.
-I implemented FAT file system in C which is my first big project using C. When I worked
+I participated in \href{http://eudyptula-challenge.org/}{Eudyptula Challenge} and started my Kernel journey from there.
+I implemented FAT file system in C which was my first big project using C. When I worked
 at our university IoT team, I led a project for making a Link Layer protocol over nRF physical layer to make it stable.
-This project is about implementing an ARQ mechanisem which we choosed stop-and-wait, becuase we didn't have many messages
+This project is about implementing an ARQ mechanism which we chose stop-and-wait approach, becuase we didn't have many messages
 to deliver into devices and we wanted to reduce the computation on the device side.
-Then I worked with a team to implement a Dashboard for our home automation system using Qt Framework and C++. It was
-touch dashboard we ran on our home panel which is powered by a Raspberry Pi 2.
+Then I worked with a team to implement a Dashboard for our home automation system
+using \href{https://www.qt.io/product/framework}{Qt Framework} and C++. It was
+a touch dashboard we ran on our home panel which is powered by a Raspberry Pi 2.
 Then moved for another project for monitoring farms using LoRaWAN, we implemented the frameware code using C++ for reading
 sensors and publishing data using LoRaWAN. On the server side we used \href{https://www.chirpstack.io/}{Chirpstack}
 to gather data and published them into our IoT Platform which is writen by me again but in Go
 (At the time of that project, Chirpstack was named loraserver.io).
 
+On my recent role, we did some changes including adding cache, change request/response structure, etc
+on our private forks of the \href{https://github.com/valhalla/valhalla}{Valhalla} and
+\href{https://github.com/Project-OSRM/osrm-backend}{OSRM} routing engines which both are implemented in C++.
+
 The main issue for me using C/C++ was memory and threading management.
-For having a consistent view of our memory leak we did lots of test with \href{https://valgrind.org/}{Valgrind}.
+For having a consistent view of our memory leak we did lots of tests with \href{https://valgrind.org/}{Valgrind}.
+Other things that I encountered with during my projects were different OS compatibility issues,
+Parsing protocols binary headers and endian issues, Cross compilation issues between Intel and ARM processors,
+Allocating memory on systems without having any operating systems installed (like Arduino devices), etc.
 
 \noindent
 \textbf{Describe top Linux projects (incl. containers) you have worked on (purpose, market, etc.).
@@ -111,8 +121,11 @@ one part consume these events and do the 15 minutes widowing (so it reduces the 
 push them into our NATS cluster and then second part reads these batch from our NATS cluster and calculate
 the percentage that we need to change the price.
 
-I have also contributed in the open source messaging system like NATS and EMQ. These contribution mostly happened
-on their Operators and Helm charts.
+I have also contributed in the open source messaging system like
+\href{https://github.com/nats-io/}{NATS} and \href{https://github.com/emqx}{EMQX}.
+These contribution mostly happened on their
+\href{https://kubernetes.io/docs/concepts/extend-kubernetes/operator/}{Operators}
+and \href{https://helm.sh/}{Helm} charts.
 
 \section{Experience}
 
