@@ -10,3 +10,5 @@ I applied for _Software Engineer - Industrial IoT_ on Dec 1, 2023. They replied 
 - Assessment - Written interview and tests (this stage)
 - Evaluation - Technical, management and HR interviews
 - Executive - Hiring Manager and Hiring Lead interviews
+
+They sent me the Psychometric assessment on Feb 28, 2024.
