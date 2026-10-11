@@ -1,0 +1,218 @@
+\tableofcontents
+
+\section{Career development}
+
+\noindent
+\textbf{How would you describe your level of experience as a professional software engineer?
+What are your strengths as a software engineer?}
+
+I have worked as a software engineer for more than ten years, and I consider myself a senior engineer.
+I started at university by writing C for embedded devices, kernel modules for FPGA hardware interfaces and
+a FAT file system for our monolithic kernel project. Then I wrote an IoT platform that talked to devices over
+LoRaWAN, Zigbee and nRF, and that moved me to backend development in Go.
+
+From 2019 to 2025 I worked at \href{https://snapp.ir}{Snapp!}, Iran's largest ride-hailing platform with more than 50 million users.
+I started as a software engineer in the shared services team and became a senior cloud engineer and then lead engineer
+for platform architecture. I led the design of the company-wide cloud platform on Kubernetes, wrote Kubernetes operators
+(CRDs) for ArgoCD authentication and authorization, and designed a microservice architecture on NATS that handled more than
+300k messages per second. Since January 2025 I have been a senior software engineer at AveeHealth, a Canadian digital-health
+startup, where I build the product in Python and run the platform on AWS with EKS and ECS. In 2026 I moved to Barcelona.
+
+My main strengths are:
+
+\begin{itemize}
+  \item \textbf{Academic knowledge together with production experience.} I have a B.Sc., M.Sc. and Ph.D. from Amirkabir University
+    of Technology, and I have taught Internet Engineering there for seven semesters. I try to understand a problem from first principles
+    before I fix it, because computers are logical and the root cause is always there to find.
+  \item \textbf{Operating what I build.} I was on call at Snapp! and I am on call at AveeHealth. I have detected issues, led incident
+    calls and made decisions under pressure.
+  \item \textbf{Adaptability.} At Snapp! I introduced NATS as the company's messaging system and ran workshops so other teams could
+    use it. When the company needed machine learning pipelines, I built them with KServe, Knative and Airflow, and a FastAPI serving
+    layer so the data science team could deploy their own models.
+  \item \textbf{Domain knowledge.} I always try to learn the domain of the product. When I worked on software for the oil industry,
+    I learned how pumpjacks and oil wells work, because good software needs domain knowledge.
+\end{itemize}
+
+\noindent
+\textbf{What are your favourite software development environments, languages, and tools? Elaborate on your choices.}
+
+I use \href{https://neovim.io/}{Neovim} every day, because it is fast and I can customise it fully. I keep my editor and my whole
+system configuration in a dotfiles framework that I maintain, and I test it with fresh installations of Arch Linux.
+
+Go is my main language. When I first saw it I thought of it as C for high-level services: simple, fast, with concurrency built in.
+Python is my second language and most of my recent product work is in it (FastAPI, Django, Pydantic AI). I use C when I need to work
+close to the hardware or the kernel, and I have also learned Rust. Over the years I have had to write PHP, Scala, Java, Node.js and even Perl.
+
+My daily tools are Docker and Podman, Git with GitHub and GitLab CI, kubectl, Helm, \href{https://argo-cd.readthedocs.io/}{ArgoCD},
+stern and krew, Ansible and Terraform, tmux, and Arch Linux on my machines with Ubuntu on servers. I prefer command-line tools, containers
+instead of installing dependencies on the host, and projects that are truly open source. I also maintain packages on the Arch User Repository.
+
+\noindent
+\textbf{How extensive is your experience of C++ software engineering? Outline the applications that you have led in C++,
+and your takeaways from that experience.}
+
+My low-level experience is mostly C, with some C++. I took part in the \href{http://eudyptula-challenge.org/}{Eudyptula Challenge},
+implemented a FAT file system in C, and in the university IoT working group I designed a reliable layer-2 transport protocol
+(stop-and-wait ARQ with retries) on top of raw nRF radio modules. In C++ I worked on a Qt touch dashboard for our home automation
+system on a Raspberry Pi, firmware for LoRaWAN farm sensors, and changes to our private forks of the
+\href{https://github.com/valhalla/valhalla}{Valhalla} and \href{https://github.com/Project-OSRM/osrm-backend}{OSRM} routing engines at Snapp!.
+
+The main lessons were about memory and threads: we used \href{https://valgrind.org/}{Valgrind} regularly to find leaks, and we had to deal with
+binary protocol headers and endianness, cross-compilation between Intel and ARM, and memory allocation on devices without an operating system.
+For the last years my main languages have been Go and Python, so I would describe my C++ as solid but not current.
+
+\noindent
+\textbf{Describe top Linux projects (incl. containers) you have worked on (purpose, market, etc.).
+What are your contributions (design, implementation, testing, documentation, CI/CD, etc)?}
+
+\begin{itemize}
+  \item \textbf{Snapp! cloud platform.} I led the design and implementation of the company-wide platform on Kubernetes. I wrote
+    Kubernetes operators (CRDs) that automated ArgoCD authentication and authorization, deployed Kafka with the
+    \href{https://strimzi.io/}{Strimzi} operator and RabbitMQ and Redis through their operators and custom resources, and set up monitoring
+    and alerting with OpenTelemetry. For Baly, Snapp!'s branch in Iraq, we ran services on AWS with EKS and Terraform.
+  \item \textbf{Surge.} The real-time pricing service at Snapp!. I led it from the beginning: we divided cities into districts, one part consumed
+    driver-location and price-request events and did 15-minute windowing before publishing to our NATS cluster, and a second part read the batches
+    and calculated the price change. It increased accepted rides by 5\%. The QA team tested it, and we provided the Kubernetes environments they needed.
+  \item \textbf{ML platform.} I built ML pipelines with KServe and Knative on Kubernetes, a Python/FastAPI serving layer so the data science team could
+    deploy models from notebook to production, an \href{https://ollama.com/}{Ollama} cluster with LiteLLM in front of it to share load between local
+    and third-party LLMs, and Airflow in place of legacy cron jobs.
+  \item \textbf{AveeHealth.} I run the platform on AWS with managed EKS clusters and ECS, and deploy the services in Docker containers.
+  \item \textbf{Device security agent (2025).} An on-device agent in Go for a US security startup, with a device-to-backend channel over a message broker,
+    deployed with Docker and Kubernetes.
+  \item \textbf{Open source.} I contributed to \href{https://github.com/nats-io/}{NATS} and \href{https://github.com/emqx}{EMQX}, mostly to their
+    Kubernetes operators and Helm charts.
+\end{itemize}
+
+In these projects I did the design and most of the implementation, and I designed our CI/CD pipelines on GitLab and GitHub.
+
+\section{Experience}
+
+\noindent
+\textbf{Please explain the differences between running an application natively, in a container, or VM.}
+
+Natively, the application runs directly on the host and needs every library and dependency installed there, so different applications can conflict.
+A container packages the application with its user space and isolates it with Linux kernel features (namespaces, cgroups and a layered file system),
+but it shares the host kernel. A VM emulates a whole machine with its own kernel, so it uses more resources but isolates at a lower level and can run
+a different operating system. When you need to change kernel settings or run another operating system, a container is not enough.
+
+On Kubernetes this difference shows up every day: containers make it cheap to schedule, restart and scale workloads, but noisy neighbours, kernel
+versions and resource limits are shared concerns. For example, I debugged an Ollama upgrade on Kubernetes where pods started normally but connections
+failed, and the cause was the cluster kernel together with Go's MPTCP behaviour. The fix was on the node kernel side, not in the container.
+
+\noindent
+\textbf{Outline your thoughts on open source software.
+What is important to get right when you are working on open source projects?}
+
+Open source is the most open way to build software: anyone can contribute, whatever their nationality or background, and projects grow faster because
+of that. I started an open source organisation at each company I worked for and released the tools that could be useful to others on GitHub. I maintain
+packages on the AUR and I have contributed to NATS and EMQX.
+
+The most important things are documentation, so people can use and extend the project, and maintenance: fix bugs and answer issues, or archive the
+project clearly. Scope also matters. When people ask for features outside the roadmap, the maintainers should say so clearly instead of leaving the
+issue open.
+
+\noindent
+\textbf{Outline your thoughts on performance in software engineering. How do you ensure that your team's code is performant?
+Can you describe hard learning in this regard?}
+
+At Snapp! we had millions of requests per day, and any commit could add a memory leak or increase response time. We ran a load test with
+\href{https://github.com/grafana/k6}{k6} for each release, and after the release we watched Prometheus and Grafana dashboards with response-time
+histograms (p50, p90, p99). For more detail we used tracing and continuous profiling in staging.
+
+The hard lesson came on a smaller B2B project: the team thought these tools were unnecessary, then queries in production took more than 30 seconds and
+AWS closed the connections, and we had no data to find which queries were slow. Since then I add metrics and tracing from the first version, even for
+small services. In Go specifically, the most common performance problems I have seen are unbounded concurrency and missing backpressure, so I limit
+concurrency explicitly and use context for cancellation and timeouts.
+
+\noindent
+\textbf{Outline your thoughts on documentation in software projects. What practices do you think software developers
+should follow in this regard? What are examples of the best open source documentation you have worked with?}
+
+Documentation should live next to the code so it is updated in the same review. Outdated documentation is worse than none, because people follow it
+instead of asking. I prefer comments in the code, a README that explains how to run and test the project, contribution guidelines, and a short
+high-level design. For bigger projects, an RFC process lets the team track architectural and protocol changes and reference them from the code.
+Schemas should be part of the protocol where possible, for example with Protobuf or Avro, so the schema is the documentation.
+
+The best documentation I have used is \href{https://docs.djangoproject.com/}{Django}'s: every feature has at least one working example that is easy to read.
+
+\section{Education}
+
+\noindent
+\textbf{How did you rank in your final year of high school in mathematics? Were you a top student? On what basis would you say that?}
+
+I was in the top 10\% of my school in mathematics and computer programming, based on the final-year report our high school gave us.
+
+\noindent
+\textbf{How did you rank in your final year of high school, in your home language? Were you a top student? On what basis would you say that?}
+
+My home language is Persian, and I was not a top student in it.
+
+\noindent
+\textbf{Please state your high school graduation results or university entrance results, and explain the grading system used.}
+
+Iran has one national university entrance exam (Konkur). I ranked 646 out of about 100,000 students in my year, which got me into Amirkabir University
+of Technology, one of the top technical universities in Iran.
+
+\noindent
+\textbf{Can you make a case that you are in the top 5\% in your academic year, or top 1\%, or even higher?}
+
+The entrance exam rank, 646 of about 100,000, is within the top 1\% nationally. At university I was first in my class in both my B.Sc. (18.94 out of 20)
+and my M.Sc. (18.77 out of 20); Iranian universities grade from 0 to 20, with 20 the best. I then completed a Ph.D. in Computer Networks (17.34 out of 20).
+References are available on request.
+
+\noindent
+\textbf{What sort of high school student were you? Outside of class, what were your interests and hobbies? What would your high school peers remember you for?}
+
+I was a bookworm and spent most of my free time in the school library. I was also interested in computer networks, and my friends remember me for
+setting up their computers on a local network so we could play Counter-Strike together.
+
+\noindent
+\textbf{Which university and degree did you choose? What other universities did you consider, and why did you select that one?}
+
+I fell in love with computers, and especially networks, in high school, so I chose computer engineering. I chose Amirkabir University of Technology because
+it is one of the most respected technical universities in Iran, known as the mother of the technical universities.
+
+\noindent
+\textbf{Overall, what was your degree result and how did that reflect on your ability?}
+
+I was first in my class in my B.Sc. and M.Sc. I think this came from real passion for operating systems and networks. What I learned there still helps
+me every day: I try to understand the problem and reason about it logically before I act, and that is how I usually find the root cause.
+
+\noindent
+\textbf{During all of your education years, from high school to university, can you describe any achievements that were truly exceptional?}
+
+\begin{itemize}
+  \item Ranked 4th in the first round and 10th in the second round of the National Olympiad of Computer Networks during my B.Sc.
+  \item Passed two rounds of the National Olympiad in Informatics in high school.
+  \item Our team was the first from my university to take part in the 39th ACM International Collegiate Programming Contest (West Asia region).
+  \item Ranked 2nd in the national hardware-software co-design competition, implementing a genetic algorithm in hardware and software.
+\end{itemize}
+
+\noindent
+\textbf{What leadership roles did you take on during your education?
+Did you conceive of, and drive to completion, any initiatives outside of your required classwork?}
+
+I led the technical side of events in our Computer Engineering faculty, including online and onsite programming contests and Linux and open source
+festivals, and an open source project that used \href{https://freeradius.org/}{FreeRADIUS} to manage internet usage for students and staff.
+I was a teaching assistant for at least one course every semester of my B.Sc., and after my M.Sc. the university invited me to teach. I taught Internet
+Engineering for seven semesters and Principles of Computer and Programming for three.
+
+\section{Context}
+
+\noindent
+\textbf{Outline your thoughts on the mission of Canonical. What is it about the company's purpose and goals which is most appealing to you?
+What is it that you think is risky or unappealing?}
+
+Canonical's mission, as I see it, is to put open source in the hands of everyone, from a person installing Linux for the first time to an enterprise
+running Kubernetes in production. Ubuntu was my own first step into Linux as a child, because it was easy to use and well documented. The same idea now
+applies to infrastructure: Charmed operators and Canonical Kubernetes give people a production platform that is free, secure and supported.
+
+The risk is the business model: many companies use open source without paying for it. I think it works when the product is good enough that operating it
+yourself costs more than buying support, and that is exactly where operators and lifecycle management add value.
+
+\noindent
+\textbf{What would you like to achieve in career and skills development?}
+
+I want to work on Kubernetes itself rather than only on top of it. I have built operators and run platforms for my own companies, and building the
+operators and add-ons that other companies depend on is the next step. I also want to have a bigger effect on the open source world, and working in
+the open at Canonical, with a community and upstream projects, is the best place I know to do that.
